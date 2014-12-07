@@ -21,8 +21,12 @@ public class MainActivity extends FragmentActivity {
 		if(view == findViewById(R.id.tmp_button_foreign_view)) {
 			fr = new ForeignProfileActivity();
 		}
-		else if(view == findViewById(R.id.welcome_button))
+		else if(view == findViewById(R.id.welcome_button)){
 			fr = new ProfileActivity();
+		}
+		else if(view == findViewById(R.id.btn_done)) {
+			fr = new AroundYou();
+		}
 
 		FragmentManager fm = getSupportFragmentManager();
 

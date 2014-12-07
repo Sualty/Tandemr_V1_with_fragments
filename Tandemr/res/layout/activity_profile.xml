@@ -186,6 +186,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
                 android:background="@+drawable/btn_search"
+                android:onClick="selectFrag"
                 android:padding="10dp"
                 android:text="@+string/profile_done"
                 android:textColor="@+android:color/white" />

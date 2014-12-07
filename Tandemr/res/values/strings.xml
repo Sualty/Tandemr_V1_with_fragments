@@ -7,7 +7,6 @@
     <string name="welcome_bottom">Find people :)</string>
     <string name="profile_name">Name</string>
     <string name="profile_gender">Gender</string>
-    
     <string name="points_text"> points</string>
 
     <string-array name="gender_array">
@@ -27,5 +26,6 @@
     <string name="profile_done">Done!</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_foreign_profile">ForeignProfileActivity</string>
+    <string name="title_activity_around_you">AroundYou</string>
 
 </resources>

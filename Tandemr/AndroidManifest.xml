@@ -30,6 +30,10 @@
             android:name=".ForeignProfileActivity"
             android:label="@string/title_activity_foreign_profile" >
         </activity>
+        <activity
+            android:name=".AroundYou"
+            android:label="@string/title_activity_around_you" >
+        </activity>
     </application>
 
 </manifest>

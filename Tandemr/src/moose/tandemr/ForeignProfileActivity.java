@@ -23,6 +23,8 @@ import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Path;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 
 //the profile of another user 's profile
 public class ForeignProfileActivity extends Fragment{
@@ -44,9 +46,7 @@ public class ForeignProfileActivity extends Fragment{
     {
         super.onActivityCreated(savedInstanceState);
       //Displaying of the round profile image
-
-      		Bitmap foreign_image = BitmapFactory.decodeResource(getResources(),R.drawable.pinguin);
-      		setBitmapClippedCircle(foreign_image);
+      		setBitmapClippedCircle(300,300);
 
       		//Personnal message
       		setMessage();
@@ -104,13 +104,12 @@ public class ForeignProfileActivity extends Fragment{
 	 * @param bitmap
 	 * @return
 	 */
-	public void setBitmapClippedCircle(Bitmap bitmap) {
-		ImageView imageview = (ImageView) getView().findViewById(R.id.foreign_image);//nullpointerexception here
+	public void setBitmapClippedCircle(int width,int height) {
+		ImageView imageview = (ImageView) getView().findViewById(R.id.foreign_image);
+		Bitmap foreign_image = getClippedBitmap(imageview);
+  		
+		foreign_image = Bitmap.createScaledBitmap(foreign_image, width,height, false);
 
-		bitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
-
-		final int width = bitmap.getWidth();
-		final int height = bitmap.getHeight();
 		final Bitmap outputBitmap = Bitmap.createBitmap(width, height, Config.ARGB_8888);
 
 		final Path path = new Path();
@@ -122,11 +121,16 @@ public class ForeignProfileActivity extends Fragment{
 				, Path.Direction.CCW);
 		
 		final Canvas canvas = new Canvas(outputBitmap);
-		canvas.clipPath(path);//nullpointereception here
-		canvas.drawBitmap(bitmap, 0, 0, null);
-		imageview.setImageBitmap(outputBitmap);//nullpointerexception here
+		canvas.clipPath(path);
+		canvas.drawBitmap(foreign_image, 0, 0, null);
+		imageview.setImageBitmap(outputBitmap);
 	}
 
+	public Bitmap getClippedBitmap(ImageView imageview) {
+    	BitmapDrawable drawable = (BitmapDrawable)imageview.getDrawable();
+  		Bitmap foreign_image = drawable.getBitmap();
+  		return foreign_image;
+	}
 	/**
 	 * Displaying the personnal message
 	 * @return

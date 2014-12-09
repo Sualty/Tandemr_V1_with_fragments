@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView1"
+    android:id="@+id/scrollView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white" >
@@ -10,15 +10,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <!-- NAME -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="30dp" >
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
+       			android:textSize="20dp"
                 android:text="@+string/profile_name" />
 
             <EditText
@@ -27,18 +31,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:ems="10"
+       			android:textSize="20dp"
                 android:inputType="text" />
         </LinearLayout>
 
+        <!-- GENDER -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="30dp" >
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
+       			android:textSize="20dp"
                 android:text="@+string/profile_gender" />
 
             <Spinner
@@ -48,15 +56,18 @@
                 android:layout_weight="0.75" />
         </LinearLayout>
 
+        <!-- BIRTH DATE -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="30dp" >
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
+       			android:textSize="20dp"
                 android:text="@+string/profile_birthdate" />
 
             <EditText
@@ -65,19 +76,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:ems="10"
+       			android:textSize="20dp"
                 android:focusable="false"
                 android:inputType="date" />
         </LinearLayout>
 
+        <!-- PROFILE PHOTO -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="30dp" >
 
             <ImageView
-                android:id="@+id/imageViewCircular"
+                android:id="@+id/profile_imageView"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_weight="0.5"
                 android:src="@+drawable/moose" />
@@ -96,9 +110,11 @@
                 android:textColor="@+android:color/white" />
         </LinearLayout>
 
+        <!-- PERSONAL MESSAGE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+     		android:textSize="20dp"
             android:text="@+string/profile_message" />
 
         <EditText
@@ -106,17 +122,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+       		android:textSize="20dp"
             android:inputType="text" />
 
+        <!-- EMAIL -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" >
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
+       			android:textSize="20dp"
                 android:text="@+string/profile_email" />
 
             <EditText
@@ -125,18 +146,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:ems="10"
+       			android:textSize="20dp"
                 android:inputType="textEmailAddress" />
         </LinearLayout>
 
+        <!-- PHONE -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="30dp" >
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
+       			android:textSize="20dp"
                 android:text="@+string/profile_phone" />
 
             <EditText
@@ -145,12 +170,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:ems="10"
+       			android:textSize="20dp"
                 android:inputType="phone" />
         </LinearLayout>
 
+        <!-- INTERESTS -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+       		android:textSize="20dp"
             android:text="@+string/profile_interests" />
 
         <CheckBox
@@ -158,6 +186,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
+       		android:textSize="20dp"
             android:text="@string/interests_sports" />
 
         <CheckBox
@@ -165,6 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
+       		android:textSize="20dp"
             android:text="@string/interests_party" />
 
         <CheckBox
@@ -172,12 +202,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
+            android:textSize="20dp"
             android:text="@string/interests_music" />
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="10dp" >
 
             <Button
                 android:id="@+id/btn_done"

@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -115,19 +116,32 @@ public class ProfileActivity extends Fragment{
 		imgView = (ImageView) getView().findViewById(R.id.profile_imageView);
 		
 		Button btn_camera = (Button) getView().findViewById(R.id.btn_search);
-		btn_camera.setOnClickListener(new View.OnClickListener() {
+		btn_camera.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				
 				Image_Picker_Dialog();
 			}
 		});
-		
 		//Save image when the screen rotates
 		if(savedInstanceState != null) {
 	        Bitmap bitmap = savedInstanceState.getParcelable("image");
 	        imgView.setImageBitmap(bitmap);
-	     }
+	    }
+		
+		/**
+		 * INTERESTS CHECK BOXS
+		 */
+		OnClickListener checkbox_listener = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Is the view now checked?
+			    boolean checked = ((CheckBox) v).isChecked();
+			}
+		};		
+		getView().findViewById(R.id.checkbox_sports).setOnClickListener(checkbox_listener);
+		getView().findViewById(R.id.checkbox_party).setOnClickListener(checkbox_listener);
+		getView().findViewById(R.id.checkbox_music).setOnClickListener(checkbox_listener);
 	}
 	  
 	
@@ -148,56 +162,6 @@ public class ProfileActivity extends Fragment{
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-	
-	/**
-	 * INTERESTS CHECK BOXS
-	 */
-	public void onCheckboxClicked(View view) {
-	    // Is the view now checked?
-	    boolean checked = ((CheckBox) view).isChecked();
-	    
-/*	    AlertDialog.Builder alert_add = new AlertDialog.Builder(getActivity());
-	    alert_add.setTitle("Interests");
-	    alert_add.setMessage("Are you sure you want to add "+((CheckBox) view).getText()+"?");
-	    alert_add.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) { 
-            	// do nothing
-            }
-         });
-	    alert_add.setIcon(android.R.drawable.ic_dialog_alert);
-	    
-	    AlertDialog.Builder alert_delete = new AlertDialog.Builder(getActivity());
-	    alert_delete.setTitle("Interests");
-	    alert_delete.setMessage("Are you sure you want to delete "+((CheckBox) view).getText()+"?");
-	    alert_delete.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) { 
-            	// do nothing
-            }
-         });
-	    alert_delete.setIcon(android.R.drawable.ic_dialog_alert);
-	    
-	    // Check which checkbox was clicked
-	    switch(view.getId()) {
-	        case R.id.checkbox_sports:
-	            if (checked)
-	            	alert_add.show();
-	            else
-	            	alert_delete.show();
-	            break;
-	        case R.id.checkbox_party:
-	            if (checked)
-	            	alert_add.show();
-	            else
-	            	alert_delete.show();
-	            break;
-	        case R.id.checkbox_music:
-	            if (checked)
-	            	alert_add.show();
-	            else
-	            	alert_delete.show();
-	            break;
-	    }*/
 	}
 	
 	/**
